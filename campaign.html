@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campaigns | Austin Strategy</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111;
+      color: #f2f2f2;
+    }
+
+    header {
+      background: #000;
+      padding: 20px 8%;
+      border-bottom: 1px solid #333;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      text-decoration: none;
+      margin-left: 22px;
+      font-weight: bold;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #ffffff;
+      border-bottom: 2px solid #ffffff;
+      padding-bottom: 4px;
+    }
+
+    .hero {
+      padding: 70px 8% 40px;
+      background: linear-gradient(135deg, #111, #222);
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin: 0 auto;
+      color: #cfcfcf;
+      font-size: 1.15rem;
+      line-height: 1.6;
+    }
+
+    .container {
+      padding: 50px 8%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .campaign-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .campaign-card {
+      background: #1b1b1b;
+      border: 1px solid #333;
+      border-radius: 14px;
+      padding: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .campaign-card:hover {
+      transform: translateY(-4px);
+      border-color: #777;
+    }
+
+    .campaign-card h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    .campaign-card p {
+      color: #c9c9c9;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .file-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .file-links a {
+      display: block;
+      background: #2a2a2a;
+      color: #fff;
+      text-decoration: none;
+      padding: 11px 14px;
+      border-radius: 8px;
+      border: 1px solid #444;
+      font-weight: bold;
+    }
+
+    .file-links a:hover {
+      background: #444;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 8%;
+      color: #aaa;
+      border-top: 1px solid #333;
+      margin-top: 40px;
+      background: #000;
+    }
+
+    @media (max-width: 700px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-links a {
+        margin: 0 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="nav">
+      <div class="logo">Austin Strategy</div>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="campaigns.html" class="active">Campaigns</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Campaigns</h1>
+    <p>
+      A central directory for campaign projects, files, resources, documents,
+      graphics, spreadsheets, and working materials.
+    </p>
+  </section>
+
+  <main class="container">
+
+    <div class="campaign-grid">
+
+      <!-- Campaign 1 -->
+      <div class="campaign-card">
+        <h2>Robert Wessels for Governor</h2>
+        <p>
+          Campaign files, graphics, spreadsheets, planning documents, scripts,
+          and field resources.
+        </p>
+
+        <div class="file-links">
+          <a href="PASTE-LINK-HERE" target="_blank">Graphics Folder</a>
+          <a href="PASTE-LINK-HERE" target="_blank">Door Knocking Spreadsheet</a>
+          <a href="PASTE-LINK-HERE" target="_blank">Texting Scripts</a>
+          <a href="PASTE-LINK-HERE" target="_blank">Event Materials</a>
+        </div>
+      </div>
+
+      <!-- Campaign 2 -->
+      <div class="campaign-card">
+        <h2>Campaign Name Here</h2>
+        <p>
+          Brief description of what this campaign is and what files are stored here.
+        </p>
+
+        <div class="file-links">
+          <a href="PASTE-LINK-HERE" target="_blank">Main Folder</a>
+          <a href="PASTE-LINK-HERE" target="_blank">Graphics</a>
+          <a href="PASTE-LINK-HERE" target="_blank">Spreadsheets</a>
+          <a href="PASTE-LINK-HERE" target="_blank">Documents</a>
+        </div>
+      </div>
+
+      <!-- Campaign 3 -->
+      <div class="campaign-card">
+        <h2>Campaign Name Here</h2>
+        <p>
+          Brief description of what this campaign is and what files are stored here.
+        </p>
+
+        <div class="file-links">
+          <a href="PASTE-LINK-HERE" target="_blank">Main Folder</a>
+          <a href="PASTE-LINK-HERE" target="_blank">Files</a>
+          <a href="PASTE-LINK-HERE" target="_blank">Planning Notes</a>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    © 2026 Austin Strategy. All rights reserved.
+  </footer>
+
+</body>
+</html>
