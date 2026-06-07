@@ -105,10 +105,61 @@
       margin-bottom: 20px;
     }
 
-    .file-links {
+    .password-area {
+      margin-top: 18px;
       display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .password-area input {
+      flex: 1;
+      min-width: 160px;
+      padding: 11px 12px;
+      border-radius: 8px;
+      border: 1px solid #444;
+      background: #111;
+      color: #fff;
+      outline: none;
+    }
+
+    .password-area input:focus {
+      border-color: #888;
+    }
+
+    .password-area button {
+      padding: 11px 16px;
+      border-radius: 8px;
+      border: 1px solid #666;
+      background: #f2f2f2;
+      color: #111;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .password-area button:hover {
+      background: #fff;
+    }
+
+    .locked-note {
+      color: #aaa;
+      font-size: 0.9rem;
+      margin-top: 10px;
+      margin-bottom: 0;
+    }
+
+    .error-message {
+      color: #ff7b7b;
+      font-size: 0.9rem;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .file-links {
+      display: none;
       flex-direction: column;
       gap: 10px;
+      margin-top: 20px;
     }
 
     .file-links a {
@@ -148,6 +199,14 @@
       .nav-links a {
         margin: 0 10px;
       }
+
+      .password-area {
+        flex-direction: column;
+      }
+
+      .password-area button {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -185,8 +244,18 @@
           and field resources.
         </p>
 
-        <div class="file-links">
-          <a href="Currently Nothing" target="_blank">Graphics Folder</a>
+        <div class="password-area">
+          <input type="password" id="wesselsPassword" placeholder="Enter campaign password">
+          <button onclick="unlockCampaign('wessels', 'wesselsPassword', 'wesselsLinks', 'wesselsError')">
+            Unlock
+          </button>
+        </div>
+
+        <p class="locked-note">Files are password-gated. Actual access may still require permission.</p>
+        <p class="error-message" id="wesselsError">Incorrect password.</p>
+
+        <div class="file-links" id="wesselsLinks">
+          <a href="Currently Nothing" target="_blank">Well done, most people don't know how to read HTML</a>
           <a href="Currently Nothing" target="_blank">Door Knocking Spreadsheet</a>
           <a href="Currently Nothing" target="_blank">Texting Scripts</a>
           <a href="Currently Nothing" target="_blank">Event Materials</a>
@@ -197,15 +266,24 @@
       <div class="campaign-card">
         <h2>Dan Daley Campaign</h2>
         <p>
-          Resources for Dan Daley Campaign
+          Resources for Dan Daley Campaign.
         </p>
 
-        <div class="file-links">
+        <div class="password-area">
+          <input type="password" id="daleyPassword" placeholder="Enter campaign password">
+          <button onclick="unlockCampaign('daley', 'daleyPassword', 'daleyLinks', 'daleyError')">
+            Unlock
+          </button>
+        </div>
+
+        <p class="locked-note">Files are password-gated.</p>
+        <p class="error-message" id="daleyError">Incorrect password.</p>
+
+        <div class="file-links" id="daleyLinks">
           <a href="https://austinstrat.app/p/zv9z92qloqppso7b6ev3rg" target="_blank">Texting Link 1</a>
           <a href="https://austinstrat.app/p/i4wpa6tjwcdkr84tx2bxs" target="_blank">Texting Link 2</a>
           <a href="https://austinstrat.app/p/jsb6ph5em0bx5jk5oz5a2g" target="_blank">Texting Link 3</a>
           <a href="https://austinstrat.app/p/vuekyw0ig7ae0erqy0okni" target="_blank">Calling Link 1</a>
-          <a href="https://austinstrat.app/p/zv9z92qloqppso7b6ev3rg" target="_blank">Texting Link 1</a>
           <a href="Currently Nothing" target="_blank">Graphics</a>
           <a href="Currently Nothing" target="_blank">Spreadsheets</a>
           <a href="Currently Nothing" target="_blank">Documents</a>
@@ -214,12 +292,22 @@
 
       <!-- Campaign 3 -->
       <div class="campaign-card">
-        <h2>Campaign Name Here</h2>
+        <h2>Your Campaign Here</h2>
         <p>
           Brief description of what this campaign is and what files are stored here.
         </p>
 
-        <div class="file-links">
+        <div class="password-area">
+          <input type="password" id="campaign3Password" placeholder="Enter campaign password">
+          <button onclick="unlockCampaign('campaign3', 'campaign3Password', 'campaign3Links', 'campaign3Error')">
+            Unlock
+          </button>
+        </div>
+
+        <p class="locked-note">Files are password-gated.</p>
+        <p class="error-message" id="campaign3Error">Incorrect password.</p>
+
+        <div class="file-links" id="campaign3Links">
           <a href="Currently Nothing" target="_blank">Main Folder</a>
           <a href="Currently Nothing" target="_blank">Files</a>
           <a href="Currently Nothing" target="_blank">Planning Notes</a>
@@ -233,6 +321,46 @@
   <footer>
     © 2026 Austin Strategies. All rights reserved.
   </footer>
+
+  <script>
+    const campaignPasswords = {
+      wessels: "dontdoit",
+      daley: "GqWs2w3",
+      campaign3: "dontdoit"
+    };
+
+    function unlockCampaign(campaignKey, inputId, linksId, errorId) {
+      const enteredPassword = document.getElementById(inputId).value;
+      const links = document.getElementById(linksId);
+      const error = document.getElementById(errorId);
+
+      if (enteredPassword === campaignPasswords[campaignKey]) {
+        links.style.display = "flex";
+        error.style.display = "none";
+      } else {
+        links.style.display = "none";
+        error.style.display = "block";
+      }
+    }
+
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        const activeElement = document.activeElement;
+
+        if (activeElement.id === "wesselsPassword") {
+          unlockCampaign("wessels", "wesselsPassword", "wesselsLinks", "wesselsError");
+        }
+
+        if (activeElement.id === "daleyPassword") {
+          unlockCampaign("daley", "daleyPassword", "daleyLinks", "daleyError");
+        }
+
+        if (activeElement.id === "campaign3Password") {
+          unlockCampaign("campaign3", "campaign3Password", "campaign3Links", "campaign3Error");
+        }
+      }
+    });
+  </script>
 
 </body>
 </html>
