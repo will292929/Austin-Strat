@@ -251,7 +251,7 @@
           </button>
         </div>
 
-        <p class="locked-note">Files are password-gated. Actual access may still require permission.</p>
+        <p class="locked-note">Files are password-gated.</p>
         <p class="error-message" id="wesselsError">Incorrect password.</p>
 
         <div class="file-links" id="wesselsLinks">
@@ -283,14 +283,47 @@
           <a href="https://austinstrat.app/p/zv9z92qloqppso7b6ev3rg" target="_blank">Texting Link 1</a>
           <a href="https://austinstrat.app/p/i4wpa6tjwcdkr84tx2bxs" target="_blank">Texting Link 2</a>
           <a href="https://austinstrat.app/p/jsb6ph5em0bx5jk5oz5a2g" target="_blank">Texting Link 3</a>
-          <a href="https://austinstrat.app/p/vuekyw0ig7ae0erqy0okni" target="_blank">Calling Link 1</a>
-          <a href="Currently Nothing" target="_blank">Graphics</a>
-          <a href="Currently Nothing" target="_blank">Spreadsheets</a>
-          <a href="Currently Nothing" target="_blank">Documents</a>
+          <a href="https://austinstrat.app/p/8zg7d5ib5zqwurnefmqqha" target="_blank">Calling Link 1</a>
+          <a href="https://austinstrat.app/p/8jb1i8ekvpeskttw6mr47" target="_blank">Calling Link 2</a>
+          <a href="https://austinstrat.app/p/26i4sue0namjcn1im6y3a" target="_blank">Calling Link 3</a>
+          <a href="https://austinstrat.app/p/1zsw0xyjto1s9fo5tr4wf9" target="_blank">Calling Link 4</a>
+          <a href="https://austinstrat.app/p/6xtvnaelsu8xkeguloxic9" target="_blank">Calling Link 5</a>
+          <a href="https://austinstrat.app/p/th4qzss97xh4ogunearyb" target="_blank">Calling Link 6</a>
+          <a href="https://austinstrat.app/p/2ezz66buxt2v3e75agts7o" target="_blank">Calling Link 7</a>
         </div>
       </div>
 
       <!-- Campaign 3 -->
+      <div class="campaign-card">
+        <h2>Joshua Pietrowicz for Congress - CD1</h2>
+        <p>
+          Resources for Joshua Pietrowicz's campaign for Maine's 1st Congressional District,
+          including campaign links, voter contact tools, graphics, spreadsheets, documents,
+          and field materials.
+        </p>
+
+        <div class="password-area">
+          <input type="password" id="joshuaPassword" placeholder="Enter campaign password">
+          <button onclick="unlockCampaign('joshua', 'joshuaPassword', 'joshuaLinks', 'joshuaError')">
+            Unlock
+          </button>
+        </div>
+
+        <p class="locked-note">Files are password-gated.</p>
+        <p class="error-message" id="joshuaError">Incorrect password.</p>
+
+        <div class="file-links" id="joshuaLinks">
+          <a href="Currently Nothing" target="_blank">Main Folder</a>
+          <a href="Currently Nothing" target="_blank">Texting Links</a>
+          <a href="Currently Nothing" target="_blank">Calling Links</a>
+          <a href="Currently Nothing" target="_blank">Graphics</a>
+          <a href="Currently Nothing" target="_blank">Spreadsheets</a>
+          <a href="Currently Nothing" target="_blank">Documents</a>
+          <a href="Currently Nothing" target="_blank">Event Materials</a>
+        </div>
+      </div>
+
+      <!-- Campaign 4 -->
       <div class="campaign-card">
         <h2>Your Campaign Here</h2>
         <p>
@@ -326,6 +359,7 @@
     const campaignPasswords = {
       wessels: "dontdoit",
       daley: "GqWs2w3",
+      joshua: "dontdoit",
       campaign3: "dontdoit"
     };
 
@@ -353,6 +387,10 @@
 
         if (activeElement.id === "daleyPassword") {
           unlockCampaign("daley", "daleyPassword", "daleyLinks", "daleyError");
+        }
+
+        if (activeElement.id === "joshuaPassword") {
+          unlockCampaign("joshua", "joshuaPassword", "joshuaLinks", "joshuaError");
         }
 
         if (activeElement.id === "campaign3Password") {
